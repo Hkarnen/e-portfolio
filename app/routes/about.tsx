@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 
 interface Work {
   title: string;
@@ -60,9 +61,27 @@ const works: Work[] = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+			duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const WorkCard = ({ work, index }: WorkCardProps) => {
 	return (
-		<div>
+		<motion.div 
+			className={`flex flex-col md:flex-row gap-6 ${index % 2 === 1 ? "md:flex-row-reverse" : ""} `}
+			variants={fadeUp}
+			initial="hidden"
+    	whileInView="visible"
+			viewport={{ once: false, amount:0.2 }}
+		>
 			<div className="md:w-1/2">
 				<h3>{work.title}</h3>
 				<p>
@@ -77,7 +96,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
 					className="rounded shadow w-full"
 				/>	
 			</div>
-		</div>
+		</motion.div>
 	)
 };
 
@@ -85,20 +104,20 @@ export default function About() {
   return (
     <section className="max-w-6xl mx-auto px-4 space-y-10">
       {/* Background */}
-      <div>
-        <h1 className="font-semibold mb-2">About Me</h1>
+      <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <h1>About Me</h1>
         <p>
-          I'm a final-year Master of IT (Distributed Computing) student at the
-          University of Melbourne, passionate about building scalable web
+          I'm a final-year Master of IT (Distributed Computing) student at the 
+					University of Melbourne, passionate about building scalable web
           applications, integrating AI tools, and architecting modern cloud
           systems. I enjoy solving real-world problems through software and
           collaborating with diverse teams.
         </p>
-      </div>
+      </motion.div>
 
       {/* Education */}
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Education</h2>
+      <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}>
+        <h2>Education</h2>
         <ul className="list-disc ml-6 space-y-1">
           <li>
             <strong>
@@ -111,11 +130,11 @@ export default function About() {
             Melbourne (2021-2023)
           </li>
         </ul>
-      </div>
+      </motion.div>
 
       {/* Skills */}
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Technical Skills</h2>
+      <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}>
+        <h2>Technical Skills</h2>
         <ul className="flex flex-wrap gap-3 text-sm">
           {[
             "React",
@@ -141,11 +160,11 @@ export default function About() {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
 
       {/* Work Experience */}
       <div>
-        <h2 className="text-xl font-semibold mb-4">Work Experience</h2>
+        <h2>Work Experience</h2>
 
         <div className="space-y-12">
 						{works.map((work, i) => (
