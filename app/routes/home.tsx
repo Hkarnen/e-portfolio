@@ -14,11 +14,11 @@ export function meta() {
 
 export default function Home() {
     return (
-        <section className="text-center">
-            <h1 className="text-4xl font-bold mb-3">Houston Karnen</h1>
-            <p className="text-lg mb-5">
+        <section className="text-center max-w-6xl mx-auto px-4 space-y-10">
+            <h1>Houston Karnen</h1>
+            <div className="text-xl mb-4">
                 Final-year MIT student · Software Engineer · Distributed-Systems Enthusiast
-            </p>
+            </div>
 
             {/* résumé button */}
             <a
