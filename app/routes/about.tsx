@@ -1,5 +1,19 @@
 import React from "react";
 
+interface Work {
+  title: string;
+  company: string;
+  date: string;
+  summary: string;
+  image: string;
+  alt: string;
+}
+
+interface WorkCardProps {
+  work: Work;
+  index: number;
+}
+
 /** Page-specific <title> and meta tags */
 export function meta() {
   return [
@@ -10,6 +24,62 @@ export function meta() {
     },
   ];
 }
+
+const works: Work[] = [
+	{
+    title: "Clinical Reasoning Simulations",
+    company: "Unimelb × University of Eastern Finland",
+    date: "Mar 2025 – Present",
+    summary: "AI-powered simulator for medical students with LLM-based chat interface and state-driven logic.",
+    image: "/images/simulation.png",
+    alt: "Simulation screenshot",
+  },
+  {
+    title: "Motivational Modelling Tool",
+    company: "Queue Solutions",
+    date: "Jun 2024 – Dec 2024",
+    summary: "Graph-based stakeholder modelling platform with zoom, export, and interactive goal logic.",
+    image: "/images/queue.png",
+    alt: "Queue Solutions project",
+  },
+  {
+    title: "StudyGenie",
+    company: "Co-Founder",
+    date: "Jan 2024 – Dec 2024",
+    summary: "Startup project: AI flashcard app for students with PDF input and OpenAI-powered generation.",
+    image: "/images/studygenie.png",
+    alt: "StudyGenie UI",
+  },
+  {
+    title: "Longbeach Scheduler",
+    company: "Longbeach Community Centre",
+    date: "Jul 2023 – Nov 2023",
+    summary: "Staff booking system with CSV export, role-based login, and form-based admin dashboard.",
+    image: "/images/longbeach.png",
+    alt: "Longbeach app screenshot",
+  },
+];
+
+const WorkCard = ({ work, index }: WorkCardProps) => {
+	return (
+		<div>
+			<div className="md:w-1/2">
+				<h3>{work.title}</h3>
+				<p>
+					{work.company} ({work.date})
+				</p>
+				<p>{work.summary}</p>
+			</div>
+			<div className="md:w-1/2">
+				<img
+					src={work.image}
+					alt={work.alt}
+					className="rounded shadow w-full"
+				/>	
+			</div>
+		</div>
+	)
+};
 
 export default function About() {
   return (
@@ -25,6 +95,7 @@ export default function About() {
           collaborating with diverse teams.
         </p>
       </div>
+
       {/* Education */}
       <div>
         <h2 className="text-xl font-semibold mb-2">Education</h2>
@@ -41,6 +112,7 @@ export default function About() {
           </li>
         </ul>
       </div>
+
       {/* Skills */}
       <div>
         <h2 className="text-xl font-semibold mb-2">Technical Skills</h2>
@@ -70,158 +142,15 @@ export default function About() {
           ))}
         </ul>
       </div>
+
       {/* Work Experience */}
       <div>
         <h2 className="text-xl font-semibold mb-4">Work Experience</h2>
 
         <div className="space-y-12">
-          {/* Clinical Reasoning Simulations */}
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/2">
-              <h4 className="font-bold">
-                Full Stack Developer – Clinical Reasoning Simulations
-              </h4>
-              <p className="text-sm text-gray-600 mb-2">
-                University of Melbourne × University of Eastern Finland (Mar
-                2025 – Present)
-              </p>
-              <ul className="list-disc ml-5 text-sm space-y-1">
-                <li>
-                  Collaborated on an AI-driven clinical simulator used by
-                  medical students and researchers.
-                </li>
-                <li>
-                  Built a real-time simulation engine using XState v5, RESTful
-                  backend, PostgreSQL, and React.
-                </li>
-                <li>
-                  Developed a chat interface using LLaMA 3.5 on Groq and
-                  LangChain for natural language input and state transitions.
-                </li>
-                <li>
-                  Managed concurrent session handling, user onboarding, and
-                  system documentation.
-                </li>
-                <li>
-                  Created Postman collections for API testing and wrote
-                  developer onboarding materials.
-                </li>
-                <li>
-                  Delivered the product 3 weeks early due to early architectural
-                  research.
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="/images/simulation.png"
-                alt="Simulation screenshot"
-                className="rounded shadow w-full"
-              />
-            </div>
-          </div>
-
-          {/* Queue Solutions */}
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/2">
-              <h4 className="font-bold">
-                Full Stack Developer Intern – Queue Solutions
-              </h4>
-              <p className="text-sm text-gray-600 mb-2">
-                Melbourne, Australia (Jun 2024 – Dec 2024)
-              </p>
-              <ul className="list-disc ml-5 text-sm space-y-1">
-                <li>
-                  Maintained and extended a motivational modelling web
-                  application using React and TypeScript.
-                </li>
-                <li>
-                  Implemented interactive goal-based graphs with zooming,
-                  resizing, and exporting capabilities.
-                </li>
-                <li>
-                  Refactored legacy frontend code and improved responsiveness
-                  and accessibility.
-                </li>
-                <li>
-                  Developed new UI flows to support stakeholder onboarding and
-                  requirement tracking.
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="/images/queue.png"
-                alt="Queue Solutions project"
-                className="rounded shadow w-full"
-              />
-            </div>
-          </div>
-
-          {/* StudyGenie */}
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/2">
-              <h4 className="font-bold">Co-Founder – StudyGenie</h4>
-              <p className="text-sm text-gray-600 mb-2">
-                Melbourne, Australia (Jan 2024 – Dec 2024)
-              </p>
-              <ul className="list-disc ml-5 text-sm space-y-1">
-                <li>
-                  Co-founded an educational startup that helps university
-                  students study more effectively.
-                </li>
-                <li>
-                  Built AI-driven flashcard generator using OpenAI GPT models
-                  and PDF extraction tools.
-                </li>
-                <li>Designed the frontend UI using Tailwind CSS and React.</li>
-                <li>
-                  Acquired over 100 beta users and pitched the project at
-                  university entrepreneurship events.
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="/images/studygenie.png"
-                alt="StudyGenie UI"
-                className="rounded shadow w-full"
-              />
-            </div>
-          </div>
-
-          {/* Longbeach */}
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/2">
-              <h4 className="font-bold">
-                Full Stack Developer – Longbeach Community Centre
-              </h4>
-              <p className="text-sm text-gray-600 mb-2">
-                Victoria, Australia (Jul 2023 – Nov 2023)
-              </p>
-              <ul className="list-disc ml-5 text-sm space-y-1">
-                <li>
-                  Developed a staff scheduling and booking system using Flask
-                  and PostgreSQL.
-                </li>
-                <li>
-                  Created CSV export functionality and form-based UI using Jinja
-                  templates and Bootstrap.
-                </li>
-                <li>
-                  Delivered a production-ready web app with user authentication
-                  and role-based access.
-                </li>
-              </ul>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="/images/longbeach.png"
-                alt="Longbeach app screenshot"
-                className="rounded shadow w-full"
-              />
-            </div>
-          </div>
+						{works.map((work, i) => (
+							<WorkCard key={work.title} work={work} index={i}/>
+						))}
         </div>
       </div>
     </section>
