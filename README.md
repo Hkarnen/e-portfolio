@@ -1,12 +1,41 @@
 # Houston Karnen – E-Portfolio
 
-Interactive, responsive portfolio built with **React Router 7 App Router**, **Vite**, **Tailwind CSS**, and **Motion** animations.
+Portfolio showcasing my projects, technical skills, and background.
+
+> **Note**: Work In Progress
+
+Built with **React Router 7 App Router**, **Vite**, **Tailwind CSS**, and **Motion** animations.
+
+## Project Structure
+
+app/                     
+├─ routes/  
+│  ├─ home.tsx           
+│  ├─ about.tsx         
+│  └─ projects.tsx      
+├─ components/  
+│  └─ Navbar.tsx        
+public/                 
+app.css                 
+Dockerfile               
+package.json             
+tsconfig.json            
+vite.config.ts           
+README.md              
 
 
-## ✨ Highlights
+## Tech Stack
 
-TBD
+| Layer            | Library / Tool                                    |
+|------------------|---------------------------------------------------|
+| Build & Dev      | **Vite**                                          |
+| Routing / SSR    | **React Router 7 App Router**                     |
+| Styling          | **Tailwind CSS**                                  |
+| Animations       | **Motion** (`motion/react`)                       |
+| Type Safety      | **TypeScript**                                    |
+| Hosting          | **Vercel** — auto-deploy on every `main` push <br> 🔗 <https://e-portfolio-houston-karnens-projects.vercel.app/> |
 
+> **Next up:** containerise with Docker/Fargate for fun and get a custom domain for hosting.
 
 ## Getting Started
 
@@ -20,7 +49,7 @@ npm install
 
 ### Development
 
-Start the development server with HMR:
+Start the development server:
 
 ```bash
 npm run dev
@@ -28,12 +57,19 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
+## Lint & Type-check
+```bash
+npm run typecheck
+```
+
 ## Building for Production
 
 Create a production build:
 
 ```bash
 npm run build
+
+npm start
 ```
 
 ## Deployment
@@ -72,10 +108,5 @@ Make sure to deploy the output of `npm run build`
 │   └── server/    # Server-side code
 ```
 
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
 
 Built with ❤️ using React Router.
