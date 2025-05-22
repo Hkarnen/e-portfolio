@@ -1,18 +1,12 @@
-# Welcome to React Router!
+# Houston Karnen – E-Portfolio
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Interactive, responsive portfolio built with **React Router 7 App Router**, **Vite**, **Tailwind CSS**, and **Motion** animations.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
-## Features
+## ✨ Highlights
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+TBD
+
 
 ## Getting Started
 
