@@ -23,6 +23,18 @@ tsconfig.json
 vite.config.ts           
 README.md              
 
+### Existing Features
+1. Simple home page with CV
+2. Simple about page with education, skills, and work experience
+
+### Plans
+1. Add project page showcasing highlighted personal and uni projects
+2. Flesh out about page - images, languages, certifications, etc
+3. Flesh out home page ?
+4. Add animations
+
+> **Note**: Plans to add many random animations and cool front-end things, partly to
+flesh out website, and partly to experiment with other front-end tech (CSS, animations)
 
 ## Tech Stack
 
