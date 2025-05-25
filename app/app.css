@@ -30,6 +30,7 @@ h4 {
   @apply text-sm font-semibold mb-2 text-gray-900 dark:text-white;
 }
 
-p {
+/* Only style paragraphs that don't have text color/size classes */
+p:not([class*="text-"]) {
   @apply text-base mb-3 text-gray-700 dark:text-gray-300 leading-relaxed;
 }
