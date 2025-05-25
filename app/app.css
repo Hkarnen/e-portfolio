@@ -7,9 +7,30 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
+  @apply bg-white dark:bg-gray-950 dark:text-gray-100 font-sans leading-relaxed;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+/* Global typography styles */
+h1 {
+  @apply text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white;
+}
+
+h2 {
+  @apply text-2xl font-bold mb-4 text-gray-900 dark:text-white;
+}
+
+h3 {
+  @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+h4 {
+  @apply text-sm font-semibold mb-2 text-gray-900 dark:text-white;
+}
+
+/* Only style paragraphs that don't have text color/size classes */
+p:not([class*="text-"]) {
+  @apply text-base mb-3 text-gray-700 dark:text-gray-300 leading-relaxed;
 }
