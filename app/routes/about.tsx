@@ -30,10 +30,10 @@ export function meta() {
 }
 
 const works: Work[] = [
-	{
+  {
     title: "Clinical Reasoning Simulations Platform",
-    subtitle: "SI Redback \u2022 University of Melbourne \u00D7 University of Eastern Finland",
-    company: "University of Eastern Finland",
+    subtitle: "AI-powered medical education simulator",
+    company: "University of Melbourne × University of Eastern Finland",
     date: "Mar 2025 – Present",
     summary: "A real-time simulation platform for practicing clinical reasoning under pressure, where students interact with a virtual patient using natural language",
     image: "/images/simulation.png",
@@ -92,6 +92,7 @@ const works: Work[] = [
   },
 ];
 
+// Fade up animation. Staggered.
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
@@ -121,7 +122,6 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
       <div className="lg:w-1/2 space-y-4">
         <div className="space-y-2">
           <motion.h3 
-            className="text-xl font-bold text-gray-900 dark:text-white"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
@@ -129,11 +129,9 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
             {work.title}
           </motion.h3>
           
-          {work.subtitle && (
-            <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
-              {work.subtitle}
-            </p>
-          )}
+          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium" style={{color:'red'}}> 
+            {work.subtitle}
+          </p>
           
           <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
             <span className="font-medium">{work.company}</span>
@@ -142,7 +140,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
           </div>
         </div>
 
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p>
           {work.summary}
         </p>
 
@@ -178,26 +176,23 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         </motion.div>
 
         {/* Key Highlights */}
-        {work.highlights && work.highlights.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="space-y-2"
-          >
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
-              Key Highlights:
-            </h4>
-            <ul className="space-y-1">
-              {work.highlights.map((point, i) => (
-                <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                  <span className="text-blue-500 mt-1 text-xs">▸</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="space-y-2"
+        >
+          <h4> Key Highlights:</h4>
+          <ul className="space-y-1">
+            {work.highlights.map((point, i) => (
+              <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+                <span className="text-blue-500 mt-1 text-xs">▸</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+        
       </div>
 
       {/* Image Section */}
@@ -239,17 +234,15 @@ export default function About() {
         viewport={{ once: true }}
         className="text-center space-y-4"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-          About Me
-        </h1>
+        <h1>About Me</h1>
         <div className="max-w-3xl mx-auto space-y-4">
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p>
             I'm a final-semester Master of IT (Distributed Computing) student at the 
             University of Melbourne, passionate about building scalable web
             applications, integrating AI tools, and architecting modern cloud
             systems.
           </p>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p>
             I enjoy solving real-world problems through software and
             collaborating with diverse teams to create meaningful impact.
           </p>
@@ -266,30 +259,30 @@ export default function About() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {/* Education */}
-        <div className="bg-blue-50 dark:bg-blue-950 rounded-xl p-6 text-center">
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">🎓</div>
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Education</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <h3>Education</h3>
+          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
             Master of IT (Distributed Computing)<br />
             {/* Bachelor of Science (Computing & Software Systems)<br /> */}
             University of Melbourne
           </p>
         </div>
         
-        <div className="bg-green-50 dark:bg-green-950 rounded-xl p-6 text-center">
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">🌏</div>
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Languages</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <h3>Languages</h3>
+          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
             English (Fluent)<br />
             Indonesian (Native)<br />
             Chinese (Basic)
           </p>
         </div>
         
-        <div className="bg-purple-50 dark:bg-purple-950 rounded-xl p-6 text-center">
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">📍</div>
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Location</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <h3>Location</h3>
+          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
             Melbourne, Victoria<br />
             Australia
           </p>
@@ -305,9 +298,7 @@ export default function About() {
         custom={2}
         className="space-y-6"
       >
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center">
-          Technical Skills
-        </h2>
+        <h2 className="text-center">Technical Skills</h2>
         <motion.div
           className="flex flex-wrap justify-center gap-3"
           initial="hidden"
@@ -346,7 +337,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-2xl font-bold text-gray-900 dark:text-white text-center"
+          className="text-center"
         >
           Work Experience
         </motion.h2>
@@ -364,11 +355,9 @@ export default function About() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-center bg-gray-50 dark:bg-gray-900 rounded-2xl p-8"
+        className="text-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl p-8"
       >
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Let's Connect
-        </h2>
+        <h2>Let's Connect</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
           Interested in collaborating or want to know more about my work?
         </p>
