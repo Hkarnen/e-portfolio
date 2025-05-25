@@ -31,8 +31,8 @@ export function meta() {
 
 const works: Work[] = [
   {
-    title: "Clinical Reasoning Simulations Platform",
-    subtitle: "AI-powered medical education simulator",
+    title: "Full Stack Developer",
+    subtitle: "Clinical Reasoning Simulations Platform",
     company: "University of Melbourne × University of Eastern Finland",
     date: "Mar 2025 – Present",
     summary: "A real-time simulation platform for practicing clinical reasoning under pressure, where students interact with a virtual patient using natural language",
@@ -46,14 +46,14 @@ const works: Work[] = [
     ]
   },
   {
-    title: "Motivational Modelling Tool",
-    subtitle: "Interactive stakeholder analysis platform",
+    title: "Full Stack Developer",
+    subtitle: "Motivational Modelling Tool",
     company: "Queue Solutions",
     date: "Jun 2024 – Dec 2024",
-    summary: "Graph-based stakeholder modelling platform with zoom, export, and interactive goal logic for university student teams' project planning.",
+    summary: "Graph-based stakeholder modelling platform for university student teams' project planning",
     image: "/images/queue.png",
     alt: "Queue Solutions project",
-    tech: ["React", "MaxGraph", "TypeScript"],
+    tech: ["React", "MaxGraph", "React Bootstrap"],
     highlights: [
       "Modernized 30% of legacy jQuery codebase to React",
       "Implemented graph features (reset, export, themes, etc.)",
@@ -61,11 +61,11 @@ const works: Work[] = [
     ]
   },
   {
-    title: "StudyGenie",
-    subtitle: "AI-powered educational platform",
-    company: "Co-Founder",
+    title: "Co-Founder & Full Stack Developer",
+    subtitle: "StudyGenie",
+    company: "StudyGenie",
     date: "Jan 2024 – Dec 2024",
-    summary: "Startup project: AI flashcard app for students with PDF input and OpenAI-powered generation, secured Microsoft funding.",
+    summary: "Startup project: AI quiz app for students using GPT-4 and learning materials",
     image: "/images/studygenie.png",
     alt: "StudyGenie UI",
     tech: ["Microsoft Azure", "OpenAI API", "Flask", "React", "Azure Storage"],
@@ -76,11 +76,11 @@ const works: Work[] = [
     ]
   },
   {
-    title: "Longbeach Scheduler",
-    subtitle: "Community center management system",
+    title: "Full Stack Developer",
+    subtitle: "Longbeach Scheduler",
     company: "Longbeach Community Centre",
     date: "Jul 2023 – Nov 2023",
-    summary: "Staff booking system with CSV export, role-based login, and form-based admin dashboard, fully replacing paper processes.",
+    summary: "Staff booking system with CSV export, role-based login, and admin dashboard, fully replacing paper processes",
     image: "/images/longbeach.png",
     alt: "Longbeach app screenshot",
     tech: ["MongoDB", "Express", "React", "Node.js"],
@@ -129,7 +129,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
             {work.title}
           </motion.h3>
           
-          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium" style={{color:'red'}}> 
+          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium"> 
             {work.subtitle}
           </p>
           
@@ -262,7 +262,7 @@ export default function About() {
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">🎓</div>
           <h3>Education</h3>
-          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
             Master of IT (Distributed Computing)<br />
             {/* Bachelor of Science (Computing & Software Systems)<br /> */}
             University of Melbourne
@@ -272,7 +272,7 @@ export default function About() {
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">🌏</div>
           <h3>Languages</h3>
-          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
             English (Fluent)<br />
             Indonesian (Native)<br />
             Chinese (Basic)
@@ -282,7 +282,7 @@ export default function About() {
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">📍</div>
           <h3>Location</h3>
-          <p className="!text-sm text-gray-600 dark:text-gray-400 mb-0">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
             Melbourne, Victoria<br />
             Australia
           </p>
