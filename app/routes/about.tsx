@@ -331,15 +331,42 @@ export default function About() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {/* Education */}
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">🎓</div>
-          <h3>Education</h3>
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={0}
+          whileHover={{
+            scale: 1.05,
+            // rotateY: 5,
+            transition: { type: "spring", stiffness: 400, damping: 10},
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-2"
+            initial= {{ rotate: 0 }}
+            // Small sway left right
+            whileInView= {{ rotate: [0, -10, 10, 0] }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            🎓
+          </motion.div>
+
+          <motion.h3
+            className="mb-3"
+            initial={{ opacity: 0, y:20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            
+          >
+            Education
+          </motion.h3>
+          
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
             Master of IT (Distributed Computing)<br />
             {/* Bachelor of Science (Computing & Software Systems)<br /> */}
             University of Melbourne
           </p>
-        </div>
+        </motion.div>
         
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">🌏</div>
