@@ -232,6 +232,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
             }}
           >
             {work.highlights.map((point, i) => (
+              // Spring animation on bullet points on hover
               <motion.li 
                 key={i} 
                 className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
@@ -242,7 +243,22 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
                   transition: {type: "spring", stiffness: 400, damping: 10}
                 }}
               >
-                <span className="text-blue-500 mt-1 text-xs">▸</span>
+                {/* Random spinny on bullet points */}
+                <motion.span 
+                  className="text-blue-500 mt-1 text-xs"
+                  initial={{ rotate: 0, scale: 1 }}
+                  whileInView={{
+                    rotate: [0, 360, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  }}
+                >
+                    ▸
+                </motion.span>
                 <span>{point}</span>
               </motion.li>
             ))}
