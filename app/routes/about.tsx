@@ -106,6 +106,34 @@ const fadeUp = {
   }),
 };
 
+// Slide in from right animation for highlights
+const slideInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: i * 0.1,
+    },
+  }),
+};
+
+// Scale up animation for education cards
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "backOut",
+      delay: i * 0.2,
+    },
+  }),
+};
+
 const WorkCard = ({ work, index }: WorkCardProps) => {
   return (
     <motion.div
@@ -180,17 +208,45 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="space-y-2"
+          className="space-y-2 overflow-hidden"
         >
-          <h4> Key Highlights:</h4>
-          <ul className="space-y-1">
+          <motion.h4
+            initial={{ opacity: 0, x: -15}}
+            whileInView={{ opacity: 1, x: 0}}
+            transition={{ delay: 0.4 }}
+          > 
+            Key Highlights:
+          </motion.h4>
+          <motion.ul 
+            className="space-y-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3}}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                }
+              }
+            }}
+          >
             {work.highlights.map((point, i) => (
-              <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
+              <motion.li 
+                key={i} 
+                className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                variants={slideInRight}
+                custom={i}
+                whileHover={{
+                  x:6,
+                  transition: {type: "spring", stiffness: 400, damping: 10}
+                }}
+              >
                 <span className="text-blue-500 mt-1 text-xs">▸</span>
                 <span>{point}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </motion.div>
         
       </div>
