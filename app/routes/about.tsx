@@ -92,6 +92,8 @@ const works: Work[] = [
   },
 ];
 
+const languages: string[] = ["English (Fluent)", "Indonesian (Native)", "Chinese (Basic)"];
+
 // Fade up animation. Staggered.
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -240,7 +242,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
                 custom={i}
                 whileHover={{
                   x:6,
-                  transition: {type: "spring", stiffness: 400, damping: 10}
+                  transition: {type: "spring", stiffness: 400}
                 }}
               >
                 {/* Random spinny on bullet points */}
@@ -337,8 +339,9 @@ export default function About() {
           custom={0}
           whileHover={{
             scale: 1.05,
-            // rotateY: 5,
-            transition: { type: "spring", stiffness: 400, damping: 10},
+            // Gives depth
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 400},
           }}
         >
           <motion.div 
@@ -356,27 +359,127 @@ export default function About() {
             initial={{ opacity: 0, y:20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            
           >
             Education
           </motion.h3>
-          
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
-            Master of IT (Distributed Computing)<br />
-            {/* Bachelor of Science (Computing & Software Systems)<br /> */}
-            University of Melbourne
-          </p>
+
+          <motion.div 
+            className="space-y-2"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1, delayChildren: 0.4 }
+              }
+            }}
+          >
+            <motion.div 
+              className="text-sm font-semibold text-gray-800 dark:text-gray-200"
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 }
+              }}
+            >
+              Master of IT (Distributed Computing)
+
+              <motion.div 
+                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
+              >
+                WAM: 77.5
+              </motion.div>
+
+            </motion.div>
+
+            <motion.div 
+              className="text-xs text-gray-600 dark:text-gray-400 leading-tight"
+              variants={{
+                hidden: { opacity: 0, x: 20 },
+                visible: { opacity: 1, x: 0 }
+              }}
+            >
+              Bachelor of Science<br />
+              (Computing & Software Systems)
+              <motion.div 
+                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+              >
+                WAM: 79.15
+              </motion.div>
+            </motion.div>
+            
+            <motion.div
+              className="text-xs text-gray-500 dark:text-gray-500 mt-2"
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 }
+              }}
+            >
+              University of Melbourne
+            </motion.div>
+          </motion.div>
         </motion.div>
-        
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">🌏</div>
-          <h3>Languages</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
-            English (Fluent)<br />
-            Indonesian (Native)<br />
-            Chinese (Basic)
-          </p>
-        </div>
+
+        {/* Languages */}
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={1}
+          whileHover={{
+            scale: 1.05,
+            rotateY: -5,
+            transition: { type: "spring", stiffness: 400}
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-2"
+            initial={{ rotate: 0 }}
+            whileInView={{ rotate: [0, 15, -15, 0] }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          >
+            🌏
+          </motion.div>
+
+          <motion.h3
+            className="mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            Languages
+          </motion.h3>
+
+          <motion.div 
+            className="space-y-1"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1, delayChildren: 0.6 }
+              }
+            }}
+          >
+            {languages.map((lang, i) => (
+              <motion.div 
+                key={lang}
+                className={`text-sm ${i < 2 ? 'font-medium text-gray-700 dark:text-gray-300' : 'text-gray-600 dark:text-gray-400'}`}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 }
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {lang}
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
         
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
           <div className="text-2xl mb-2">📍</div>
