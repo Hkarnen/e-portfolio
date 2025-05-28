@@ -92,6 +92,8 @@ const works: Work[] = [
   },
 ];
 
+const languages: string[] = ["English (Fluent)", "Indonesian (Native)", "Chinese (Basic)"];
+
 // Fade up animation. Staggered.
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -102,6 +104,34 @@ const fadeUp = {
       duration: 0.5,
       ease: "easeOut",
       delay: i * 0.1,
+    },
+  }),
+};
+
+// Slide in from right animation for highlights
+const slideInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: i * 0.1,
+    },
+  }),
+};
+
+// Scale up animation for education cards
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "backOut",
+      delay: i * 0.2,
     },
   }),
 };
@@ -180,17 +210,61 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="space-y-2"
+          className="space-y-2 overflow-hidden"
         >
-          <h4> Key Highlights:</h4>
-          <ul className="space-y-1">
+          <motion.h4
+            initial={{ opacity: 0, x: -15}}
+            whileInView={{ opacity: 1, x: 0}}
+            transition={{ delay: 0.4 }}
+          > 
+            Key Highlights:
+          </motion.h4>
+          <motion.ul 
+            className="space-y-1"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3}}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                }
+              }
+            }}
+          >
             {work.highlights.map((point, i) => (
-              <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
-                <span className="text-blue-500 mt-1 text-xs">▸</span>
+              // Spring animation on bullet points on hover
+              <motion.li 
+                key={i} 
+                className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                variants={slideInRight}
+                custom={i}
+                whileHover={{
+                  x:6,
+                  transition: {type: "spring", stiffness: 400}
+                }}
+              >
+                {/* Random spinny on bullet points */}
+                <motion.span 
+                  className="text-blue-500 mt-1 text-xs"
+                  initial={{ rotate: 0, scale: 1 }}
+                  whileInView={{
+                    rotate: [0, 360, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    delay: 0.5 + i * 0.1,
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  }}
+                >
+                    ▸
+                </motion.span>
                 <span>{point}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </motion.div>
         
       </div>
@@ -259,34 +333,172 @@ export default function About() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {/* Education */}
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">🎓</div>
-          <h3>Education</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
-            Master of IT (Distributed Computing)<br />
-            {/* Bachelor of Science (Computing & Software Systems)<br /> */}
-            University of Melbourne
-          </p>
-        </div>
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={0}
+          whileHover={{
+            scale: 1.05,
+            // Gives depth
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 400},
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-2"
+            initial= {{ rotate: 0 }}
+            // Small sway left right
+            whileInView= {{ rotate: [0, -10, 10, 0] }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            🎓
+          </motion.div>
+
+          <motion.h3
+            initial={{ opacity: 0, y:20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            Education
+          </motion.h3>
+
+          <div className="space-y-2">
+            <motion.h4 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              University of Melbourne
+            </motion.h4>
+
+            <motion.p 
+              className="card-text"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Master of IT <br />
+              Distributed Computing
+              <motion.p
+                className="card-text-accent"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.6, type: "spring", stiffness: 400 }}
+              >
+                WAM: 77.5
+              </motion.p>
+            </motion.p>
+            
+            <motion.p 
+              className="card-text"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              Bachelor of Science<br />Computing & Software Systems
+              <motion.p 
+                className="card-text-accent"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.8, type: "spring", stiffness: 400 }}
+              >
+                WAM: 79.15
+              </motion.p>
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Languages */}
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={1}
+          whileHover={{
+            scale: 1.05,
+            rotateY: -5,
+            transition: { type: "spring", stiffness: 400}
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-2"
+            initial={{ rotate: 0 }}
+            whileInView={{ rotate: [0, 15, -15, 0] }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          >
+            🌏
+          </motion.div>
+
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            Languages
+          </motion.h3>
+
+          <motion.div 
+            className="space-y-2"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1, delayChildren: 0.6 }
+              }
+            }}
+          >
+            {languages.map((lang, i) => (
+              <motion.p 
+                key={lang}
+                className="card-text"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 }
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {lang}
+              </motion.p>
+            ))}
+          </motion.div>
+        </motion.div>
         
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">🌏</div>
-          <h3>Languages</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
-            English (Fluent)<br />
-            Indonesian (Native)<br />
-            Chinese (Basic)
-          </p>
-        </div>
-        
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">📍</div>
-          <h3>Location</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
+        {/* Location */}
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={2}
+          whileHover={{ 
+            scale: 1.05,
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 400 }
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-3"
+            initial={{ y: 0 }}
+            whileInView={{ y: [-5, 0, -3, 0] }}
+            transition={{ delay: 0.9, duration: 1, ease: "easeInOut" }}
+          >
+            📍
+          </motion.div>
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            Location
+          </motion.h3>
+          <motion.p
+            className="card-text"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
             Melbourne, Victoria<br />
             Australia
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </motion.section>
 
       {/* Technical Skills */}
