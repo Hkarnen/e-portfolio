@@ -27,10 +27,20 @@ h3 {
 }
 
 h4 {
-  @apply text-sm font-semibold mb-2 text-gray-900 dark:text-white;
+  @apply text-base font-semibold mb-2 text-gray-900 dark:text-white;
 }
 
 /* Only style paragraphs that don't have text color/size classes */
 p:not([class*="text-"]) {
   @apply text-base mb-3 text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+/* Card text class - for info cards and compact content */
+.card-text {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+/* Card text variants */
+.card-text-accent {
+  @apply text-sm text-blue-600 dark:text-blue-400 font-medium;
 }

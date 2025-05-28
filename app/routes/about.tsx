@@ -355,7 +355,6 @@ export default function About() {
           </motion.div>
 
           <motion.h3
-            className="mb-3"
             initial={{ opacity: 0, y:20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
@@ -363,66 +362,50 @@ export default function About() {
             Education
           </motion.h3>
 
-          <motion.div 
-            className="space-y-2"
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: { staggerChildren: 0.1, delayChildren: 0.4 }
-              }
-            }}
-          >
-            <motion.div 
-              className="text-sm font-semibold text-gray-800 dark:text-gray-200"
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                visible: { opacity: 1, x: 0 }
-              }}
-            >
-              Master of IT (Distributed Computing)
-
-              <motion.div 
-                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
-              >
-                WAM: 77.5
-              </motion.div>
-
-            </motion.div>
-
-            <motion.div 
-              className="text-xs text-gray-600 dark:text-gray-400 leading-tight"
-              variants={{
-                hidden: { opacity: 0, x: 20 },
-                visible: { opacity: 1, x: 0 }
-              }}
-            >
-              Bachelor of Science<br />
-              (Computing & Software Systems)
-              <motion.div 
-                className="text-xs text-blue-600 dark:text-blue-400 font-medium"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
-              >
-                WAM: 79.15
-              </motion.div>
-            </motion.div>
-            
-            <motion.div
-              className="text-xs text-gray-500 dark:text-gray-500 mt-2"
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                visible: { opacity: 1, y: 0 }
-              }}
+          <div className="space-y-2">
+            <motion.h4 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
             >
               University of Melbourne
-            </motion.div>
-          </motion.div>
+            </motion.h4>
+
+            <motion.p 
+              className="card-text"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Master of IT <br />
+              Distributed Computing
+              <motion.p
+                className="card-text-accent"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.6, type: "spring", stiffness: 400 }}
+              >
+                WAM: 77.5
+              </motion.p>
+            </motion.p>
+            
+            <motion.p 
+              className="card-text"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              Bachelor of Science<br />Computing & Software Systems
+              <motion.p 
+                className="card-text-accent"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ delay: 0.8, type: "spring", stiffness: 400 }}
+              >
+                WAM: 79.15
+              </motion.p>
+            </motion.p>
+          </div>
         </motion.div>
 
         {/* Languages */}
@@ -446,7 +429,6 @@ export default function About() {
           </motion.div>
 
           <motion.h3
-            className="mb-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -455,7 +437,7 @@ export default function About() {
           </motion.h3>
 
           <motion.div 
-            className="space-y-1"
+            className="space-y-2"
             initial="hidden"
             whileInView="visible"
             variants={{
@@ -466,9 +448,9 @@ export default function About() {
             }}
           >
             {languages.map((lang, i) => (
-              <motion.div 
+              <motion.p 
                 key={lang}
-                className={`text-sm ${i < 2 ? 'font-medium text-gray-700 dark:text-gray-300' : 'text-gray-600 dark:text-gray-400'}`}
+                className="card-text"
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1, scale: 1 }
@@ -476,7 +458,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
               >
                 {lang}
-              </motion.div>
+              </motion.p>
             ))}
           </motion.div>
         </motion.div>
@@ -489,7 +471,7 @@ export default function About() {
           whileHover={{ 
             scale: 1.05,
             rotateY: 5,
-            transition: { type: "spring", stiffness: 300 }
+            transition: { type: "spring", stiffness: 400 }
           }}
         >
           <motion.div 
@@ -501,22 +483,21 @@ export default function About() {
             📍
           </motion.div>
           <motion.h3
-            className="mb-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
             Location
           </motion.h3>
-          <motion.div 
-            className="text-sm font-medium text-gray-700 dark:text-gray-300"
+          <motion.p
+            className="card-text"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
             Melbourne, Victoria<br />
             Australia
-          </motion.div>
+          </motion.p>
         </motion.div>
       </motion.section>
 
