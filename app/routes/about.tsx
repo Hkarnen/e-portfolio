@@ -68,7 +68,7 @@ const works: Work[] = [
     summary: "Startup project: AI quiz app for students using GPT-4 and learning materials",
     image: "/images/studygenie.png",
     alt: "StudyGenie UI",
-    tech: ["Microsoft Azure", "OpenAI API", "Flask", "React", "Azure Storage"],
+    tech: ["Microsoft Azure", "OpenAI", "Flask", "React"],
     highlights: [
       "Secured Microsoft funding for innovative AI approach",
       "Generated personalized quizzes from study documents",
