@@ -481,14 +481,43 @@ export default function About() {
           </motion.div>
         </motion.div>
         
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
-          <div className="text-2xl mb-2">📍</div>
-          <h3>Location</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-0">
+        {/* Location */}
+        <motion.div 
+          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
+          variants={scaleUp}
+          custom={2}
+          whileHover={{ 
+            scale: 1.05,
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 300 }
+          }}
+        >
+          <motion.div 
+            className="text-2xl mb-3"
+            initial={{ y: 0 }}
+            whileInView={{ y: [-5, 0, -3, 0] }}
+            transition={{ delay: 0.9, duration: 1, ease: "easeInOut" }}
+          >
+            📍
+          </motion.div>
+          <motion.h3
+            className="mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            Location
+          </motion.h3>
+          <motion.div 
+            className="text-sm font-medium text-gray-700 dark:text-gray-300"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
             Melbourne, Victoria<br />
             Australia
-          </p>
-        </div>
+          </motion.div>
+        </motion.div>
       </motion.section>
 
       {/* Technical Skills */}
