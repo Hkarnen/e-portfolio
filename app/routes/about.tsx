@@ -38,11 +38,11 @@ const works: Work[] = [
     summary: "A real-time simulation platform for practicing clinical reasoning under pressure, where students interact with a virtual patient using natural language",
     image: "/images/simulation.png",
     alt: "Simulation screenshot",
-    tech: ["Groq", "LLaMA 3.5", "LangChain", "Tailwind", "Express", "PostgreSQL", "XState", "React"],
+    tech: ["Groq", "LLaMA 3", "LangChain", "Tailwind", "Express", "PostgreSQL", "XState", "React"],
     highlights: [
-      "Mapped free-text input to structured clinical actions with >95% accuracy",
-      "Simulation engine mimics real-time deterioration with config-driven timers",
-      "Adopted xAPI standard for full interaction logging and research use"
+      "Mapped free-text input in multiple languages to structured clinical actions created in XState and YAML files with >95% accuracy",
+      "Simulation engine mimics real-time patient deterioration with config-driven timers",
+      "Adopted xAPI standard for full interaction logging and research use",
     ]
   },
   {
