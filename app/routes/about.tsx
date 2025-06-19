@@ -562,7 +562,7 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <motion.section
+      {/* <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -595,7 +595,7 @@ export default function About() {
             Download Resume
           </motion.a>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 }
