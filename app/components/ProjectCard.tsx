@@ -15,15 +15,13 @@ interface ProjectCardData {
 
 interface ProjectCardProps {
   project: ProjectCardData;
-  className?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ 
   project, 
-  className = "" 
 }) => {
   return (
-    <div className={`bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow duration-300 ${className}`}>
+    <div className={`bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow duration-300`}>
       {/* Media Section */}
       <MediaPicker media={project.media} />
       
