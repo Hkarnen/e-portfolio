@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { ProjectCard, type ProjectCardData } from '../components/ProjectCard';
 
 /** Page-specific <title> and meta tags */
 export function meta() {
@@ -12,92 +13,51 @@ export function meta() {
   ];
 }
 
-// Featured work project (from About page)
-const featuredWork = {
+// Featured work project (from about page)
+const featuredWork: ProjectCardData = {
   title: "Clinical Reasoning Simulations Platform",
   role: "Full Stack Developer",
   company: "University of Melbourne × University of Eastern Finland",
   description: "AI-powered medical education simulator with natural language interaction and real-time clinical reasoning.",
-  tech: ["React", "Express", "LLaMA 3", "PostgreSQL", "XState", "LangChain"],
-  image: "/images/simulation.png",
-  type: "work",
-  highlight: "Used in UEF for medical research and training"
+  tech: ["React", "Groq", "LLaMA 3", "LangChain", "Tailwind", "Express", "PostgreSQL", "XState"],
+  media: {
+    type: 'video',
+    videoSrc: '/videos/clinical-demo.mp4',
+    posterSrc: '/images/simulation-thumbnail.png',
+    title: 'Clinical Reasoning Platform Demo'
+  },
+  type: 'work'
 };
 
-// Placeholder personal projects (to be replaced when Projects page is built)
-const featuredPersonalProjects = [
+// Placeholder personal projects with image carousels
+const featuredPersonalProjects: ProjectCardData[] = [
   {
     title: "Personal Project 1",
-    description: "Placeholder",
-    tech: [],
-    image: "/images/placeholder.png",
-    type: "personal",
-    highlight: "Key achievement or feature"
+    description: "Description",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    media: {
+      type: 'images',
+      images: [
+        { src: '/images/placeholder.png', alt: 'Personal project screenshot' }
+      ]
+    },
+    type: 'personal',
+    githubUrl: ''
   },
   {
     title: "Personal Project 2", 
-    description: "Placeholder",
-    tech: [],
-    image: "/images/placeholder.png",
-    type: "personal",
-    highlight: "Key achievement or feature"
+    description: "Description",
+    tech: ["Python", "Flask", "MongoDB"],
+    media: {
+      type: 'images',
+      images: [
+        { src: '/images/placeholder.png', alt: 'Personal project screenshot' }
+      ]
+    },
+    type: 'personal',
+    githubUrl: ''
   }
 ];
-
-const ProjectCard = ({ project }: { project: any }) => {
-  return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      {/* Image */}
-      <div className="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      {/* Company and Role */}
-      <div className="p-6 space-y-4">
-        <div>
-          <h3>{project.title}</h3>
-          {project.role && (
-            <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
-              {project.role} • {project.company}
-            </p>
-          )}
-        </div>
-        {/* Project description */}
-        <p>
-          {project.description}
-        </p>
-        {/* Highlight */}
-        {project.highlight && (
-          <div className="bg-blue-50 dark:bg-blue-950 rounded-lg p-3">
-            <p className="text-sm text-blue-800 dark:text-blue-200">
-              <span className="text-blue-500">✨</span> {project.highlight}
-            </p>
-          </div>
-        )}
-        {/* Tech stack */}
-        <div className="flex flex-wrap gap-2">
-          {project.tech.slice(0, 4).map((tech: string) => (
-            <span
-              key={tech}
-              className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs font-medium"
-            >
-              {tech}
-            </span>
-          ))}
-          {/* + more - TBD: make this expandable */}
-          {project.tech.length > 4 && (
-            <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1">
-              +{project.tech.length - 4} more
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default function Home() {
 
@@ -120,7 +80,7 @@ export default function Home() {
         
         <div className="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg px-4 py-3 inline-block">
           <p className="text-green-800 dark:text-green-200 font-medium">
-            🎓 Available for opportunities starting June 2025
+            🎓 Available for opportunities starting July 2025
           </p>
         </div>
       </section>
