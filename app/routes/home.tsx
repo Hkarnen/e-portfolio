@@ -85,6 +85,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Current Status */}
+      <section className="space-y-8">
+        <h2 className="text-center">Current Status</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 rounded-xl">
+            <div className="text-2xl mb-3">🎓</div>
+            <h3>Graduating Soon</h3>
+            <p>Master of IT finishing June 2025</p>
+          </div>
+          
+          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl">
+            <div className="text-2xl mb-3">💼</div>
+            <h3>Currently Building</h3>
+            <p>AI medical simulation platform</p>
+          </div>
+          
+          <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-xl">
+            <div className="text-2xl mb-3">🔍</div>
+            <h3>Seeking Opportunities</h3>
+            <p>Junior/entry-level full-stack roles</p>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Work Project */}
       <section className="space-y-8">
         <div className="text-center space-y-2">
