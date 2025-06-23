@@ -23,7 +23,7 @@ const featuredWork: ProjectCardData = {
   media: {
     type: 'video',
     videoSrc: '/videos/clinical-demo.mp4',
-    posterSrc: '/images/simulation-thumbnail.png',
+    posterSrc: '/images/si-logo.png',
     title: 'Clinical Reasoning Platform Demo'
   },
   type: 'work'
