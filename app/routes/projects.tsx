@@ -1,18 +1,39 @@
-// <!-- <div className="flex flex-col md:flex-row gap-6">
-//                     <div className="md:w-1/2">
-//                         <h4 className="font-bold">Cloud Engineer – Traffic & Weather Pipeline</h4>
-//                         <p className="text-sm text-gray-600 mb-2">Melbourne Research Cloud (2024)</p>
-//                         <ul className="list-disc ml-5 text-sm space-y-1">
-//                             <li>Developed serverless data ingestion using Fission and REST APIs.</li>
-//                             <li>Processed and visualized real-time freeway, air-quality, and weather data.</li>
-//                             <li>Deployed Kubernetes-based pipelines with CI/CD.</li>
-//                         </ul>
-//                     </div>
-//                     <div className="md:w-1/2">
-//                         <img
-//                             src="/images/traffic-pipeline.png"
-//                             alt="Traffic pipeline"
-//                             className="rounded shadow"
-//                         />
-//                     </div>
-//                 </div> -->
+import React from "react";
+
+/** Page-specific <title> and meta tags */
+export function meta() {
+  return [
+    { title: "Houston Karnen – Projects" },
+    {
+      name: "description",
+      content: "Personal and university projects.",
+    },
+  ];
+}
+
+export default function Projects() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+      <section className="text-center space-y-4">
+        <h1>Projects</h1>
+        <p>More projects coming soon. For now, check out these university assignments</p>
+      </section>
+
+      <section className="text-center">
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-8 space-y-4">
+          <h2>COMP90024 Assignment 2</h2>
+          <p>A project on the Melbourne Research Cloud involving OpenStack, Kubernetes, Docker, Fission, Elasticsearch</p>
+          <a
+            href="https://github.com/Hkarnen/comp90024-assignment-2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            <span>📂</span>
+            View on GitHub
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}
