@@ -4,6 +4,7 @@ export default [
     layout("./routes/navbar.tsx", [
         index("routes/home.tsx"),
         route("/about", "routes/about.tsx"),
+        route("/projects", "routes/projects.tsx")
     ]),
     
     
