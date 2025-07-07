@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
+import { MediaPicker, type MediaItem } from "../components/MediaPicker";
+import { type CarouselImage } from "../components/ImageCarousel";
 
 interface Work {
   title: string;
@@ -7,8 +9,7 @@ interface Work {
   company: string;
   date: string;
   summary: string;
-  image: string;
-  alt: string;
+  media: MediaItem; // Required media using MediaPicker
   tech: string[];
   highlights: string[];
 }
@@ -36,8 +37,12 @@ const works: Work[] = [
     company: "University of Melbourne × University of Eastern Finland",
     date: "Mar 2025 – Present",
     summary: "A real-time simulation platform for practicing clinical reasoning under pressure, where students interact with a virtual patient using natural language",
-    image: "/images/simulation.png",
-    alt: "Simulation screenshot",
+    media: {
+      type: 'video',
+      videoSrc: '/videos/clinical-demo.mp4',
+      posterSrc: '/images/si-logo.png',
+      title: 'Clinical Reasoning Platform Demo'
+    },
     tech: ["Groq", "LLaMA 3", "LangChain", "Tailwind", "Express", "PostgreSQL", "XState", "React"],
     highlights: [
       "Mapped free-text input in multiple languages to structured clinical actions created in XState and YAML files with >95% accuracy",
@@ -51,8 +56,12 @@ const works: Work[] = [
     company: "Queue Solutions",
     date: "Jun 2024 – Dec 2024",
     summary: "Graph-based stakeholder modelling platform for university student teams' project planning",
-    image: "/images/queue.png",
-    alt: "Queue Solutions project",
+    media: {
+      type: 'images',
+      images: [
+        { src: '/images/queue.png', alt: 'Queue Solutions project screenshot' }
+      ]
+    },
     tech: ["React", "MaxGraph", "React Bootstrap"],
     highlights: [
       "Modernized 30% of legacy jQuery codebase to React",
@@ -66,8 +75,12 @@ const works: Work[] = [
     company: "StudyGenie",
     date: "Jan 2024 – Dec 2024",
     summary: "Startup project: AI quiz app for students using GPT-4 and learning materials",
-    image: "/images/studygenie.png",
-    alt: "StudyGenie UI",
+    media: {
+      type: 'images',
+      images: [
+        { src: '/images/studygenie.png', alt: 'StudyGenie UI screenshot' }
+      ]
+    },
     tech: ["Microsoft Azure", "OpenAI", "Flask", "React"],
     highlights: [
       "Secured Microsoft funding for innovative AI approach",
@@ -81,8 +94,12 @@ const works: Work[] = [
     company: "Longbeach Community Centre",
     date: "Jul 2023 – Nov 2023",
     summary: "Staff booking system with CSV export, role-based login, and admin dashboard, fully replacing paper processes",
-    image: "/images/longbeach.png",
-    alt: "Longbeach app screenshot",
+    media: {
+      type: 'images',
+      images: [
+        { src: '/images/longbeach.png', alt: 'Longbeach app screenshot' }
+      ]
+    },
     tech: ["MongoDB", "Express", "React", "Node.js"],
     highlights: [
       "Eliminated paper-based attendance systems entirely",
@@ -269,7 +286,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         
       </div>
 
-      {/* Image Section */}
+      {/* Media Section */}
       <motion.div 
         className="lg:w-1/2"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -278,13 +295,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         whileHover={{ scale: 1.02 }}
       >
         <div className="relative group">
-          <img
-            src={work.image}
-            alt={work.alt}
-            className="rounded-lg shadow-lg w-full object-cover aspect-video bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
-          />
-          {/* Overlay for better visual feedback */}
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <MediaPicker media={work.media} />
         </div>
       </motion.div>
     </motion.div>
