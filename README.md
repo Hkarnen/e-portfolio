@@ -1,124 +1,90 @@
 # Houston Karnen – E-Portfolio
 
-Portfolio showcasing my projects, technical skills, and background.
+My portfolio website built with React Router 7, showcasing my projects and technical background.
 
-> **Note**: Work In Progress
+## Live Site
 
-Built with **React Router 7 App Router**, **Vite**, **Tailwind CSS**, and **Motion** animations.
+**Production**: [https://e-portfolio-houston-karnens-projects.vercel.app/](https://e-portfolio-houston-karnens-projects.vercel.app/)
+
+Built with React Router 7, Vite, Tailwind CSS, and some Motion animations.
 
 ## Project Structure
 
-app/                     
-├─ routes/  
-│  ├─ home.tsx           
-│  ├─ about.tsx         
-│  └─ projects.tsx      
-├─ components/  
-│  └─ Navbar.tsx        
-public/                 
-app.css                 
-Dockerfile               
-package.json             
-tsconfig.json            
-vite.config.ts           
-README.md              
+```
+app/
+├─ routes/               # Pages
+│  ├─ home.tsx        # Home page
+│  ├─ about.tsx         # About me
+│  └─ projects.tsx      # Projects
+├─ components/           # Reusable components
+│  ├─ ProjectCard.tsx   # Project cards
+│  ├─ MediaPicker.tsx   # Video/image switcher
+│  ├─ ImageCarousel.tsx   # Image Carousel
+│  └─ VideoPlayer.tsx     # Video Player
+terraform/               # AWS infrastructure
+Dockerfile              # Docker setup
+```
+## Work Experience (Placements / Internship)
 
-### Existing Features
-1. Simple home page with CV
-2. Simple about page with education, skills, and work experience
+- **Clinical Reasoning Simulations** - Medical training platform for students at University of Eastern Finland
+- **Queue Solutions** - University project planning tool
+- **StudyGenie** - AI quiz app startup
+- **Longbeach Scheduler** - Staff booking system
 
-### Plans
-1. Add project page showcasing highlighted personal and uni projects
-2. Flesh out about page - images, languages, certifications, etc
-3. Flesh out home page ?
-4. Add animations
+## Selected Projects
+> University projects that are relevant
 
-> **Note**: Plans to add many random animations and cool front-end things, partly to
-flesh out website, and partly to experiment with other front-end tech (CSS, animations)
+Under development
 
 ## Tech Stack
 
-| Layer            | Library / Tool                                    |
-|------------------|---------------------------------------------------|
-| Build & Dev      | **Vite**                                          |
-| Routing / SSR    | **React Router 7 App Router**                     |
-| Styling          | **Tailwind CSS**                                  |
-| Animations       | **Motion** (`motion/react`)                       |
-| Type Safety      | **TypeScript**                                    |
-| Hosting          | **Vercel** — auto-deploy on every `main` push <br> 🔗 <https://e-portfolio-houston-karnens-projects.vercel.app/> |
+- **React Router 7** - routing and SSR
+- **Vite** - build tool
+- **Tailwind CSS** - styling
+- **Motion** - animations - plans to remove
+- **TypeScript** - type safety
+- **Vercel** - hosting
+- **Docker** - containerization
+- **Terraform** - AWS infrastructure for hands on experience
 
-> **Next up:** containerise with Docker/Fargate for fun and get a custom domain for hosting.
+## AWS Infrastructure Setup
 
-## Getting Started
+I added AWS infrastructure using Terraform to demonstrate cloud skills for job applications. The setup includes:
 
-### Installation
+- Custom VPC (10.0.0.0/16) in Sydney region
+- Public subnet with internet gateway
+- Security groups for HTTP and SSH access
+- EC2 instance running Amazon Linux 2023
+- Automated Docker deployment via user data script
 
-Install the dependencies:
+The infrastructure code is in the `terraform/` folder. You can deploy it with:
+```bash
+cd terraform
+terraform init
+terraform apply
+```
+
+Note: I've taken down the actual deployment to save costs, but the infrastructure code remains as a demonstration.
+
+## Development
 
 ```bash
 npm install
-```
-
-### Development
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Lint & Type-check
-```bash
+npm run dev 
 npm run typecheck
 ```
 
-## Building for Production
-
-Create a production build:
+## Docker
 
 ```bash
-npm run build
-
-npm start
+docker build -t portfolio .
+docker run -p 3000:3000 portfolio
 ```
 
 ## Deployment
 
-### Docker Deployment
+Currently deployed on Vercel with automatic deployments from the main branch. The Docker setup makes it deployable to any platform (AWS ECS, Google Cloud Run, etc.).
 
-To build and run using Docker:
+---
 
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-
-Built with ❤️ using React Router.
+Built with React Router 7 and deployed on Vercel.
