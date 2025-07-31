@@ -186,6 +186,15 @@ export default function Home() {
             <span>📄</span>
             Download Resume
           </a>
+          <a
+            href="/Karnen_Houston_Transcript.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border-2 border-gray-400 text-gray-600 dark:text-gray-400 px-6 py-3 rounded-lg hover:bg-gray-400 hover:text-white transition-colors font-medium hover:scale-105 transform transition-transform duration-200"
+          >
+            <span>📊</span>
+            View Transcript
+          </a>
           <Link
             to="/about"
             className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-medium hover:scale-105 transform transition-transform duration-200"
