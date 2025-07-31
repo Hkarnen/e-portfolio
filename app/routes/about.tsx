@@ -24,7 +24,7 @@ export function meta() {
     { title: "Houston Karnen - About" },
     {
       name: "description",
-      content: "Background, education, technical skills, work experience",
+      content: "Recent Master of IT graduate with experience in full-stack development, cloud infrastructure, and distributed systems",
     },
   ];
 }
@@ -34,7 +34,7 @@ const works: Work[] = [
     title: "Full Stack Developer",
     subtitle: "Clinical Reasoning Simulations Platform",
     company: "University of Melbourne × University of Eastern Finland",
-    date: "Mar 2025 – Present",
+    date: "Mar 2025 – Jul 2025",
     summary: "A real-time simulation platform for practicing clinical reasoning under pressure, where students interact with a virtual patient using natural language",
     media: {
       type: 'video',
@@ -189,9 +189,9 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
 
 export default function About() {
   const skills = [
-    "React", "React Bootstrap", "Motion", "JavaScript", "TypeScript", "Node.js", "Express", "Python", 
-    "Flask", "Java", "PostgreSQL", "MongoDB", "Docker", "Kubernetes", "Fission", "Elasticsearch", "XState", 
-    "Microsoft Azure", "Tailwind CSS"
+    "React", "TypeScript", "JavaScript", "Node.js", "Express", "Python", 
+    "Flask", "Java", "PostgreSQL", "MongoDB", "Docker", "Kubernetes", "AWS", "Microsoft Azure", 
+    "Terraform", "Elasticsearch", "XState", "React Bootstrap", "Tailwind CSS", "Git", "Linux", "REST APIs", "Microservices"
   ];
 
   return (
@@ -201,14 +201,16 @@ export default function About() {
         <h1>About Me</h1>
         <div className="max-w-3xl mx-auto space-y-4">
           <p>
-            I'm a final-semester Master of IT (Distributed Computing) student at the 
+            I'm a recent Master of IT (Distributed Computing) graduate from the 
             University of Melbourne, passionate about building scalable web
-            applications, integrating AI tools, and architecting modern cloud
-            systems.
+            applications, cloud infrastructure, and architecting modern systems
+            that solve real-world problems.
           </p>
           <p>
-            I enjoy solving real-world problems through software and
-            collaborating with diverse teams to create meaningful impact.
+            My experience spans full-stack development, AWS cloud deployment, 
+            and containerized applications. I enjoy collaborating with diverse teams
+            to create meaningful software solutions and am eager to contribute to
+            innovative technology projects.
           </p>
         </div>
       </section>
@@ -234,7 +236,7 @@ export default function About() {
               Master of IT <br />
               Distributed Computing
               <p className="card-text-accent">
-                WAM: 77.5
+                WAM: 80.8
               </p>
             </p>
             
@@ -312,41 +314,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      {/* <motion.section
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="text-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl p-8"
-      >
-        <h2>Let's Connect</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          Interested in collaborating or want to know more about my work?
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <motion.a
-            href="mailto:houston.ten@gmail.com"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>📧</span>
-            Get In Touch
-          </motion.a>
-          <motion.a
-            href="/Karnen_Houston_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-colors font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>📄</span>
-            Download Resume
-          </motion.a>
-        </div>
-      </motion.section> */}
     </div>
   );
 }

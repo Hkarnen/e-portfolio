@@ -69,42 +69,42 @@ export default function Home() {
           <h1>Houston Karnen</h1>
           <div className="space-y-2">
             <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold">
-              Master's Student & Full-Stack Developer
+              Full-Stack Developer & Cloud Infrastructure Enthusiast
             </p>
             <p>
-              Graduating Master of IT student experienced in distributed systems, AI integration, 
-              and scalable full stack applications.
+              Recent Master of IT graduate with hands-on experience in distributed systems, cloud infrastructure, 
+              and scalable full-stack applications.
             </p>
           </div>
         </div>
         
         <div className="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg px-4 py-3 inline-block">
           <p className="text-green-800 dark:text-green-200 font-medium">
-            🎓 Available for opportunities starting July 2025
+            🎓 Recent graduate available for immediate opportunities
           </p>
         </div>
       </section>
 
       {/* Current Status */}
       <section className="space-y-8">
-        <h2 className="text-center">Current Status</h2>
+        <h2 className="text-center">Current Focus</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 rounded-xl">
             <div className="text-2xl mb-3">🎓</div>
-            <h3>Graduating Soon</h3>
-            <p>Master of IT finishing June 2025</p>
+            <h3>Fresh Graduate</h3>
+            <p>Master of IT completed July 2025</p>
           </div>
           
           <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl">
-            <div className="text-2xl mb-3">💼</div>
-            <h3>Currently Building</h3>
-            <p>AI medical simulation platform</p>
+            <div className="text-2xl mb-3">☁️</div>
+            <h3>Cloud & Infrastructure</h3>
+            <p>AWS deployment & containerization with Terraform</p>
           </div>
           
           <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-xl">
             <div className="text-2xl mb-3">🔍</div>
             <h3>Seeking Opportunities</h3>
-            <p>Junior/entry-level full-stack roles</p>
+            <p>Entry / Junior Full-stack & Dev Ops roles</p>
           </div>
         </div>
       </section>
@@ -164,8 +164,8 @@ export default function Home() {
         <div className="space-y-2">
           <h2>Ready to Contribute to Your Team</h2>
           <p className="max-w-2xl mx-auto">
-            I'm actively seeking junior/entry-level opportunities where I can apply my full-stack development 
-            skills and passion for building meaningful software solutions.
+            I'm actively seeking opportunities where I can apply my full-stack development 
+            skills, cloud infrastructure experience, and passion for building scalable software solutions.
           </p>
         </div>
         
