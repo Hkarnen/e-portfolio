@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "motion/react";
 import { MediaPicker, type MediaItem } from "../components/MediaPicker";
 import { type CarouselImage } from "../components/ImageCarousel";
 
@@ -111,70 +110,19 @@ const works: Work[] = [
 
 const languages: string[] = ["English (Fluent)", "Indonesian (Native)", "Chinese (Basic)"];
 
-// Fade up animation. Staggered.
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-      delay: i * 0.1,
-    },
-  }),
-};
-
-// Slide in from right animation for highlights
-const slideInRight = {
-  hidden: { opacity: 0, x: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-      delay: i * 0.1,
-    },
-  }),
-};
-
-// Scale up animation for education cards
-const scaleUp = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "backOut",
-      delay: i * 0.2,
-    },
-  }),
-};
-
 const WorkCard = ({ work, index }: WorkCardProps) => {
   return (
-    <motion.div
-      className={`flex flex-col lg:flex-row gap-8 items-center ${
+    <div
+      className={`flex flex-col lg:flex-row gap-8 items-center fade-in ${
         index % 2 === 1 ? "lg:flex-row-reverse" : ""
       }`}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      custom={index}
     >
       {/* Content Section */}
       <div className="lg:w-1/2 space-y-4">
         <div className="space-y-2">
-          <motion.h3 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          <h3>
             {work.title}
-          </motion.h3>
+          </h3>
           
           <p className="text-sm text-blue-600 dark:text-blue-400 font-medium"> 
             {work.subtitle}
