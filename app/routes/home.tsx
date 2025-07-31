@@ -5,10 +5,10 @@ import { ProjectCard, type ProjectCardData } from '../components/ProjectCard';
 /** Page-specific <title> and meta tags */
 export function meta() {
   return [
-    { title: "Houston Karnen – Software Engineer & MIT Student" },
+    { title: "Houston Karnen – Full-Stack Developer & Cloud Engineer" },
     {
       name: "description",
-      content: "Final-year MIT student specialising in distributed systems & full-stack development.",
+      content: "Recent Master of IT graduate specializing in full-stack development, cloud infrastructure, and distributed systems.",
     },
   ];
 }
@@ -85,26 +85,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Current Status */}
-      <section className="space-y-8">
-        <h2 className="text-center">Current Focus</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 rounded-xl">
-            <div className="text-2xl mb-3">🎓</div>
-            <h3>Fresh Graduate</h3>
-            <p>Master of IT completed July 2025</p>
+      {/* About Me - Narrative Flow */}
+      <section className="space-y-12">
+        {/* About Me - Combined */}
+        <div className="max-w-4xl mx-auto space-y-6 fade-in">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="text-4xl">👨‍💻</div>
+            <div>
+              <h2 className="mb-2">About Me</h2>
+              <p className="text-blue-600 dark:text-blue-400 font-medium">Full-Stack Developer & Cloud Infrastructure Enthusiast</p>
+            </div>
           </div>
-          
-          <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl">
-            <div className="text-2xl mb-3">☁️</div>
-            <h3>Cloud & Infrastructure</h3>
-            <p>AWS deployment & containerization with Terraform</p>
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-2xl p-8 space-y-6">
+            <p>
+              I've just completed my Master of IT (Distributed Computing) at the University of Melbourne, 
+              where I specialized in building scalable systems and cloud infrastructure. Throughout my studies 
+              and work experience, I've developed expertise in both full-stack development and DevOps practices.
+            </p>
+            
+            <p>
+              On the development side, I build complete web applications from frontend to backend using React, 
+              TypeScript, Node.js, and Python, with experience ranging from AI-powered medical simulations to 
+              real-time collaboration tools. On the infrastructure side, I'm passionate about deploying and 
+              scaling applications using AWS, Docker, Terraform, and modern CI/CD practices.
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-base font-semibold mb-3 text-purple-800 dark:text-purple-200">Full-Stack Development</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Java", "TypeScript", "Node.js", "Python", "PostgreSQL", "MongoDB", "Express"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-base font-semibold mb-3 text-cyan-800 dark:text-cyan-200">Cloud & Infrastructure</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["AWS", "Docker", "Terraform", "Kubernetes", "Linux", "CI/CD"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-3 py-1 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-xl">
-            <div className="text-2xl mb-3">🔍</div>
-            <h3>Seeking Opportunities</h3>
-            <p>Entry / Junior Full-stack & Dev Ops roles</p>
+        </div>
+
+        {/* What I'm Looking For */}
+        <div className="max-w-4xl mx-auto space-y-6 fade-in-delayed-2">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="text-4xl">🔍</div>
+            <div>
+              <h2 className="mb-2">What I'm Seeking</h2>
+              <p className="text-blue-600 dark:text-blue-400 font-medium">Ready to contribute and grow</p>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-2xl p-8">
+            <p className="mb-4">
+              I'm actively seeking opportunities where I can apply my full-stack development skills alongside 
+              my passion for cloud infrastructure. I'm particularly interested in roles that involve modern 
+              development practices, scalable architecture, and collaborative team environments.
+            </p>
+            <p>
+              Whether it's a full-stack developer position, DevOps role, or something that combines both, 
+              I'm excited to contribute to innovative projects and continue learning from experienced teams.
+            </p>
           </div>
         </div>
       </section>

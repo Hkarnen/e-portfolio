@@ -32,7 +32,7 @@ h4 {
 
 /* Only style paragraphs that don't have text color/size classes */
 p:not([class*="text-"]) {
-  @apply text-base mb-3 text-gray-700 dark:text-gray-300 leading-relaxed;
+  @apply text-lg mb-3 text-gray-700 dark:text-gray-300 leading-relaxed;
 }
 
 /* Card text class - for info cards and compact content */
