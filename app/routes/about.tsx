@@ -140,113 +140,50 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         </p>
 
         {/* Tech Stack */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.05,
-              },
-            },
-          }}
-        >
+        <div>
           <div className="flex flex-wrap gap-2">
             {work.tech.map((tech, i) => (
-              <motion.span
+              <span
                 key={i}
                 className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-700"
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-                whileHover={{ scale: 1.05 }}
               >
                 {tech}
-              </motion.span>
+              </span>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Key Highlights */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="space-y-2 overflow-hidden"
-        >
-          <motion.h4
-            initial={{ opacity: 0, x: -15}}
-            whileInView={{ opacity: 1, x: 0}}
-            transition={{ delay: 0.4 }}
-          > 
+        <div className="space-y-2 overflow-hidden">
+          <h4> 
             Key Highlights:
-          </motion.h4>
-          <motion.ul 
-            className="space-y-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3}}
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.15,
-                }
-              }
-            }}
-          >
+          </h4>
+          <ul className="space-y-1">
             {work.highlights.map((point, i) => (
               // Spring animation on bullet points on hover
-              <motion.li 
+              <li 
                 key={i} 
                 className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
-                variants={slideInRight}
-                custom={i}
-                whileHover={{
-                  x:6,
-                  transition: {type: "spring", stiffness: 400}
-                }}
               >
                 {/* Random spinny on bullet points */}
-                <motion.span 
-                  className="text-blue-500 mt-1 text-xs"
-                  initial={{ rotate: 0, scale: 1 }}
-                  whileInView={{
-                    rotate: [0, 360, 0],
-                    scale: [1, 1.2, 1]
-                  }}
-                  transition={{
-                    delay: 0.5 + i * 0.1,
-                    duration: 0.6,
-                    ease: "easeInOut"
-                  }}
-                >
+                <span className="text-blue-500 mt-1 text-xs">
                     ▸
-                </motion.span>
+                </span>
                 <span>{point}</span>
-              </motion.li>
+              </li>
             ))}
-          </motion.ul>
-        </motion.div>
+          </ul>
+        </div>
         
       </div>
 
       {/* Media Section */}
-      <motion.div 
-        className="lg:w-1/2"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        whileHover={{ scale: 1.02 }}
-      >
+      <div className="lg:w-1/2">
         <div className="relative group">
           <MediaPicker media={work.media} />
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
@@ -260,13 +197,7 @@ export default function About() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-16">
       {/* Header Section */}
-      <motion.section
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="text-center space-y-4"
-      >
+      <section className="text-center space-y-4">
         <h1>About Me</h1>
         <div className="max-w-3xl mx-auto space-y-4">
           <p>
@@ -280,238 +211,99 @@ export default function About() {
             collaborating with diverse teams to create meaningful impact.
           </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* Quick Info Grid */}
-      <motion.section
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        custom={1}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
-      >
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Education */}
-        <motion.div 
-          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
-          variants={scaleUp}
-          custom={0}
-          whileHover={{
-            scale: 1.05,
-            // Gives depth
-            rotateY: 5,
-            transition: { type: "spring", stiffness: 400},
-          }}
-        >
-          <motion.div 
-            className="text-2xl mb-2"
-            initial= {{ rotate: 0 }}
-            // Small sway left right
-            whileInView= {{ rotate: [0, -10, 10, 0] }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center">
+          <div className="text-2xl mb-2">
             🎓
-          </motion.div>
+          </div>
 
-          <motion.h3
-            initial={{ opacity: 0, y:20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
+          <h3>
             Education
-          </motion.h3>
+          </h3>
 
           <div className="space-y-2">
-            <motion.h4 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
+            <h4>
               University of Melbourne
-            </motion.h4>
+            </h4>
 
-            <motion.p 
-              className="card-text"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-            >
+            <p className="card-text">
               Master of IT <br />
               Distributed Computing
-              <motion.p
-                className="card-text-accent"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 400 }}
-              >
+              <p className="card-text-accent">
                 WAM: 77.5
-              </motion.p>
-            </motion.p>
+              </p>
+            </p>
             
-            <motion.p 
-              className="card-text"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-            >
+            <p className="card-text">
               Bachelor of Science<br />Computing & Software Systems
-              <motion.p 
-                className="card-text-accent"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 400 }}
-              >
+              <p className="card-text-accent">
                 WAM: 79.15
-              </motion.p>
-            </motion.p>
+              </p>
+            </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Languages */}
-        <motion.div 
-          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
-          variants={scaleUp}
-          custom={1}
-          whileHover={{
-            scale: 1.05,
-            rotateY: -5,
-            transition: { type: "spring", stiffness: 400}
-          }}
-        >
-          <motion.div 
-            className="text-2xl mb-2"
-            initial={{ rotate: 0 }}
-            whileInView={{ rotate: [0, 15, -15, 0] }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center hover:scale-105 transform transition-transform duration-200">
+          <div className="text-2xl mb-2">
             🌏
-          </motion.div>
+          </div>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+          <h3>
             Languages
-          </motion.h3>
+          </h3>
 
-          <motion.div 
-            className="space-y-2"
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: { staggerChildren: 0.1, delayChildren: 0.6 }
-              }
-            }}
-          >
+          <div className="space-y-2">
             {languages.map((lang, i) => (
-              <motion.p 
+              <p 
                 key={lang}
-                className="card-text"
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 }
-                }}
-                whileHover={{ scale: 1.05 }}
+                className="card-text hover:scale-105 transform transition-transform duration-200"
               >
                 {lang}
-              </motion.p>
+              </p>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
         
         {/* Location */}
-        <motion.div 
-          className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center"
-          variants={scaleUp}
-          custom={2}
-          whileHover={{ 
-            scale: 1.05,
-            rotateY: 5,
-            transition: { type: "spring", stiffness: 400 }
-          }}
-        >
-          <motion.div 
-            className="text-2xl mb-3"
-            initial={{ y: 0 }}
-            whileInView={{ y: [-5, 0, -3, 0] }}
-            transition={{ delay: 0.9, duration: 1, ease: "easeInOut" }}
-          >
+        <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-xl p-6 text-center hover:scale-105 transform transition-transform duration-200">
+          <div className="text-2xl mb-3">
             📍
-          </motion.div>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-          >
+          </div>
+          <h3>
             Location
-          </motion.h3>
-          <motion.p
-            className="card-text"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
+          </h3>
+          <p className="card-text">
             Melbourne, Victoria<br />
             Australia
-          </motion.p>
-        </motion.div>
-      </motion.section>
+          </p>
+        </div>
+      </section>
 
       {/* Technical Skills */}
-      <motion.section
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        custom={2}
-        className="space-y-6"
-      >
+      <section className="space-y-6">
         <h2 className="text-center">Technical Skills</h2>
-        <motion.div
-          className="flex flex-wrap justify-center gap-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.03,
-              },
-            },
-          }}
-        >
+        <div className="flex flex-wrap justify-center gap-3">
           {skills.map((skill) => (
-            <motion.div
+            <div
               key={skill}
-              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-shadow"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow-md transition-shadow hover:scale-105 transform transition-transform duration-200"
             >
               {skill}
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* Work Experience */}
       <section className="space-y-12">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center"
-        >
+        <h2 className="text-center">
           Work Experience
-        </motion.h2>
+        </h2>
 
         <div className="space-y-16">
           {works.map((work, i) => (
