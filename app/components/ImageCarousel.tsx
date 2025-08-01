@@ -50,10 +50,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // Single image - no carousel needed
   if (images.length === 1) {
     return (
-      <div className="relative aspect-video overflow-hidden rounded-lg">
-        <img src={images[0].src} alt={images[0].alt} className="w-full h-full object-cover" />
+      <div className="relative rounded-lg bg-gray-50 dark:bg-gray-900 p-4">
+        <img src={images[0].src} alt={images[0].alt} className="w-full h-auto rounded-lg mx-auto" />
         {images[0].caption && (
-          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-sm p-2">
+          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-sm p-2 rounded-b-lg">
             {images[0].caption}
           </div>
         )}
@@ -64,7 +64,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // Multiple images - full carousel
   return (
     <div 
-      className="relative aspect-video overflow-hidden rounded-lg group"
+      className="relative aspect-video overflow-hidden rounded-lg group bg-gray-50 dark:bg-gray-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -73,7 +73,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
-          className="w-full h-full object-cover transition-opacity duration-300"
+          className="w-full h-full object-contain transition-opacity duration-300"
         />
         
         {/* Caption */}

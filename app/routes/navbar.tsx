@@ -3,7 +3,7 @@ import { Outlet, Link, useLocation } from "react-router";
 export default function Navbar() {
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
+    { path: "/experience", label: "Experience" },
     { path: "/projects", label: "Projects" },
   ];
 
@@ -19,10 +19,10 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/experience"
             className="text-gray-700 hover:text-blue-600 font-medium"
           >
-            About Me
+            Experience
           </Link>
           <Link
             to="/projects"

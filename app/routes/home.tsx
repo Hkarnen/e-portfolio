@@ -180,7 +180,7 @@ export default function Home() {
         {/* Link to about page */}
         <div className="text-center">
           <Link
-            to="/about"
+            to="/experience"
             className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline font-medium"
           >
             View All Work Experience
@@ -252,7 +252,7 @@ export default function Home() {
             View Transcript
           </a>
           <Link
-            to="/about"
+            to="/experience"
             className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-medium hover:scale-105 transform transition-transform duration-200"
           >
             <span>👋</span>
