@@ -114,7 +114,7 @@ export default function Home() {
               <div>
                 <h4 className="text-base font-semibold mb-3 text-purple-800 dark:text-purple-200">Full-Stack Development</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["React", "Java", "TypeScript", "Node.js", "Python", "PostgreSQL", "MongoDB", "Express"].map((tech) => (
+                  {["React", "Java", "TypeScript", "Node.js", "Python", "PostgreSQL", "MySQL", "Flask"].map((tech) => (
                     <span
                       key={tech}
                       className="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-medium"
@@ -128,7 +128,7 @@ export default function Home() {
               <div>
                 <h4 className="text-base font-semibold mb-3 text-cyan-800 dark:text-cyan-200">Cloud & Infrastructure</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["AWS", "Docker", "Terraform", "Kubernetes", "Linux", "CI/CD"].map((tech) => (
+                  {["AWS", "Azure", "Docker", "Terraform", "Kubernetes", "Linux", "CI/CD"].map((tech) => (
                     <span
                       key={tech}
                       className="bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 px-3 py-1 rounded-full text-sm font-medium"
@@ -227,7 +227,7 @@ export default function Home() {
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:houston.ten@gmail.com"
+            href="mailto:houston.karnen@gmail.com"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium hover:scale-105 transform transition-transform duration-200"
           >
             <span>📧</span>
@@ -240,7 +240,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-colors font-medium hover:scale-105 transform transition-transform duration-200"
           >
             <span>📄</span>
-            Download Resume
+            Download CV
           </a>
           <a
             href="/Karnen_Houston_Transcript.pdf"
