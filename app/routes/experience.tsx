@@ -41,13 +41,13 @@ const works: Work[] = [
       posterSrc: '/images/si-logo.png',
       title: 'Clinical Reasoning Platform Demo'
     },
-    tech: ["React", "TypeScript", "LLaMA 3", "LangChain", "Tailwind CSS", "Express.js", "PostgreSQL", "XState", "Docker"],
+    tech: ["React", "TypeScript", "LLaMA 3", "LangChain", "Tailwind CSS", "Node.js", "Express.js", "PostgreSQL", "XState v5", "YAML", "JWT Authentication", "Jest", "Docker"],
     highlights: [
-      "Architected natural language processing pipeline using LangChain and LLaMA 3 that maps free-text clinical input to structured actions with >95% accuracy across English, Finnish, and other languages",
-      "Built real-time simulation engine with XState state machines and YAML configuration files, enabling complex patient deterioration scenarios with precise timing controls",
-      "Implemented xAPI standard for comprehensive interaction logging, enabling detailed learning analytics and research data collection for educational institutions",
-      "Developed responsive React frontend with real-time state updates and support for multiple concurrent user simulations",
-      "Created admin interface for case management, allowing instructors to upload scenarios, monitor running simulations, and manage user sessions",
+      "Developed deterministic simulation engine using YAML configuration files and XState v5 state machines, modeling medical scenarios in real-time and serving >50 concurrent learners simultaneously",
+      "Architected natural language processing pipeline using LangChain and LLaMA 3 chatbot with 95% accuracy mapping multilingual text to clinical actions across English, Finnish, and other languages",
+      "Exposed RESTful APIs on Node.js secured with JWT authentication, achieving 80% Jest test coverage for reliable medical education deployment",
+      "Implemented xAPI standard for comprehensive interaction logging on PostgreSQL, enabling detailed learning analytics and research data collection for educational institutions",
+      "Created admin interface for case management with onboarding documentation and Postman API suites, allowing instructors to upload scenarios and monitor running simulations",
       "Integrated PostgreSQL database with optimized queries for storing simulation states, user progress, and detailed interaction histories",
       "Collaborated with medical educators to ensure clinical accuracy and pedagogical effectiveness of simulation scenarios"
     ]
@@ -66,12 +66,12 @@ const works: Work[] = [
     },
     tech: ["React", "TypeScript", "MaxGraph", "React Bootstrap", "Node.js", "Express", "MongoDB"],
     highlights: [
-      "Migrated all remaining jQuery codebase to modern React components, representing 30% of the total codebase and improving maintainability and performance",
+      "Refactored legacy jQuery modules into modern React + TypeScript components, cutting bundle size by 30% and reducing bugs while improving maintainability and performance",
+      "Built motivational-modelling graph tool with MaxGraph visualization library, now used by 200+ University of Melbourne IT capstone students for stakeholder analysis",
       "Implemented advanced graph visualization features including node positioning, connection routing, theme switching, and data export functionality",
-      "Built responsive UI components using React Bootstrap, ensuring cross-device compatibility for student teams",
-      "Developed tool specifically for University of Melbourne's capstone IT Project subject, supporting undergraduate computer science students in stakeholder analysis",
-      "Collaborated directly with the subject coordinator to align tool functionality with curriculum requirements and learning objectives",
-      "Created accessible solution that students can deploy locally, supporting project planning workflows for the capstone subject"
+      "Practiced two-week Scrum sprints with the development team, leading backlog refinement sessions and demo presentations with client stakeholders",
+      "Collaborated directly with the subject coordinator to align tool functionality with curriculum requirements and learning objectives for the capstone subject",
+      "Created accessible solution that students can deploy locally, supporting project planning workflows and team collaboration for undergraduate computer science students"
     ]
   },
   {
@@ -79,27 +79,27 @@ const works: Work[] = [
     subtitle: "StudyGenie",
     company: "StudyGenie",
     date: "Jan 2024 – Dec 2024",
-    summary: "Co-founded an AI-powered study platform that generates personalized quizzes from student learning materials. Secured Microsoft funding through their startup accelerator program. Built end-to-end solution from MVP to production deployment, serving students across multiple universities with GPT-4 integration.",
+    summary: "Co-founded an Azure-funded SaaS platform that parses course materials and auto-generates personalized quizzes via Azure OpenAI. Secured Microsoft funding through their startup accelerator program. Built end-to-end solution from MVP to production deployment, onboarding 50+ pilot users with comprehensive role-based access controls.",
     media: {
       type: 'images',
       images: []
     },
-    tech: ["React", "TypeScript", "Python", "Flask", "Microsoft Azure", "OpenAI GPT-4", "Azure Cognitive Services", "PostgreSQL", "Docker"],
+    tech: ["React", "TypeScript", "Python", "Flask", "Microsoft Azure", "Azure OpenAI", "Azure App Services", "Azure Storage", "Google OAuth2", "PostgreSQL", "Docker"],
     highlights: [
-      "Secured Microsoft for Startups funding and Azure credits through competitive application process, validating innovative AI approach to personalized learning",
-      "Developed intelligent content processing pipeline that extracts key concepts from PDFs, lecture notes, and textbooks using Azure Document Intelligence and GPT-4",
-      "Built adaptive quiz generation system that creates contextual questions based on student learning materials and content analysis",
-      "Designed comprehensive analytics dashboard showing learning patterns, knowledge gaps, and progress tracking with data visualization",
-      "Implemented user authentication system and built foundation for scalable SaaS platform architecture",
-      "Deployed application on Azure using App Services and Storage, enabling reliable hosting and file management for student documents"
+      "Bootstrapped Azure-funded SaaS platform through Microsoft for Startups funding and Azure credits, validating innovative AI approach to personalized learning",
+      "Deployed Flask REST API + React dashboard on Azure App Services with data storage in Azure Storage, creating scalable cloud-native architecture",
+      "Developed intelligent content processing pipeline that extracts key concepts from PDFs, lecture notes, and textbooks using Azure Document Intelligence and OpenAI APIs",
+      "Integrated Google OAuth2 for role-based access control, successfully onboarding 50+ pilot users with secure authentication and authorization",
+      "Built adaptive quiz generation system that creates contextual questions based on student learning materials and comprehensive content analysis",
+      "Designed analytics dashboard showing learning patterns, knowledge gaps, and progress tracking with data visualization for educational insights"
     ]
   },
   {
     title: "Full Stack Developer",
     subtitle: "Staff Scheduling & Management System",
     company: "Longbeach Community Centre",
-    date: "Jul 2023 – Nov 2023",
-    summary: "Developed a comprehensive digital transformation solution for Longbeach Community Centre, completely replacing their paper-based staff scheduling and attendance tracking systems. The platform serves 50+ staff members and administrators, managing tutoring schedules, attendance records, and operational workflows.",
+    date: "Jul 2023 – Oct 2023",
+    summary: "Implemented a MERN-based portal that digitized class attendance and tutor/admin controls, completely eliminating 100% paper records for 20+ weekly classes. The comprehensive digital transformation solution serves 50+ staff members and administrators, managing tutoring schedules, attendance records, and operational workflows.",
     media: {
       type: 'images',
       images: [
@@ -107,7 +107,7 @@ const works: Work[] = [
       ],
       linkUrl: 'https://www.longbeachcentre.org.au/'
     },
-    tech: ["React", "Node.js", "Express.js", "MongoDB", "JWT Authentication", "CSV Export", "Responsive Design"],
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "MERN Stack", "JWT Authentication", "CSV Export", "Responsive Design"],
     highlights: [
       "Completely eliminated paper-based attendance and scheduling systems, improving operational efficiency by an estimated 70%",
       "Built role-based authentication system with separate interfaces for administrators and students with appropriate permission levels",
@@ -286,7 +286,7 @@ export default function Experience() {
               <div>
                 <h4 className="font-semibold">Languages</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  English (Fluent) • Indonesian (Native) • Chinese (Basic)
+                  English (Fluent) • Indonesian (Native) • Chinese (Intermediate)
                 </p>
               </div>
               
