@@ -99,7 +99,7 @@ const works: Work[] = [
     subtitle: "Staff Scheduling & Management System",
     company: "Longbeach Community Centre",
     date: "Jul 2023 – Oct 2023",
-    summary: "Implemented a MERN-based portal that digitized class attendance and tutor/admin controls, completely eliminating 100% paper records for 20+ weekly classes. The comprehensive digital transformation solution serves 50+ staff members and administrators, managing tutoring schedules, attendance records, and operational workflows.",
+    summary: "Implemented a MERN-based portal that digitized class attendance and admin/student controls, completely eliminating 100% paper records for 20+ weekly classes. The comprehensive digital transformation solution serves 50+ staff members and administrators, managing class schedules, attendance records, and operational workflows.",
     media: {
       type: 'images',
       images: [
@@ -262,14 +262,14 @@ export default function Experience() {
               <div>
                 <h4 className="font-semibold">Cloud & DevOps</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  AWS • Docker • Terraform • Kubernetes • Linux
+                  AWS • Azure • Docker • Terraform • Kubernetes • Linux
                 </p>
               </div>
               
               <div>
                 <h4 className="font-semibold">Databases</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  PostgreSQL • MongoDB • Elasticsearch
+                  PostgreSQL • MySQL • MongoDB • Elasticsearch
                 </p>
               </div>
             </div>

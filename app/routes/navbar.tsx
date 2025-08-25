@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from "react-router";
+import { Outlet, Link } from "react-router";
 
 export default function Navbar() {
   const navItems = [
@@ -8,14 +8,11 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="flex flex-col min-hscreen font-sans bg-gray-50 text-gray-800">
+    <div className="flex flex-col min-h-screen font-sans bg-gray-50 text-gray-800">
       <nav className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-        <div className="text-2x1 font-bold text-blue-700">Houston Karnen</div>
+        <div className="text-2xl font-bold text-blue-700">Houston Karnen</div>
         <div className="space-x-6">
-          <Link
-            to="/"
-            className="text-gray-700 hover:text-blue-600 font-medium"
-          >
+          <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium">
             Home
           </Link>
           <Link
@@ -41,13 +38,13 @@ export default function Navbar() {
         <p className="mb-1">2025 Houston Karnen</p>
         <p className="space-x-2">
           <a
-            href="mailto:houston.ten@gmail.com"
+            href="mailto:houston.karnen@gmail.com"
             className="text-blue-600 hover:underline"
           >
             Email
           </a>
           <a
-            href="https://www.linkedin.com/in/houston-karnen-802b1922a/"
+            href="https://www.linkedin.com/in/houston-karnen/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
