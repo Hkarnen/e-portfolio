@@ -1,5 +1,5 @@
 #!/bin/bash
-# cloud‑init script: runs once at first boot
+# cloud-init script: runs once at first boot
 
 # 1. update packages & install Docker + Git (Amazon Linux 2023)
 yum update -y

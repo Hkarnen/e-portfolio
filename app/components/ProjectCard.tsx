@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router";
 import { MediaPicker, type MediaItem } from "./MediaPicker";
 
 interface ProjectCardData {
   title: string;
+  slug?: string;
   role?: string;
   company?: string;
   description: string;
@@ -79,17 +81,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 View Repo
               </a>
             )}
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-sm"
-              >
-                <span>🚀</span>
-                Live Demo
-              </a>
-            )}
+            {project.liveUrl && (() => {
+              const isInternal = project.liveUrl.startsWith("/");
+              if (isInternal) {
+                return (
+                  <Link
+                    to={project.liveUrl}
+                    className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                  >
+                    <span>🧭</span>
+                    View Project
+                  </Link>
+                );
+              }
+              return (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                >
+                  <span>🚀</span>
+                  Live Demo
+                </a>
+              );
+            })()}
           </div>
         )}
       </div>

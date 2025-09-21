@@ -29,33 +29,24 @@ const featuredWork: ProjectCardData = {
   type: 'work'
 };
 
-// Placeholder personal projects with image carousels
+// Featured personal projects linking to the Projects page anchors
 const featuredPersonalProjects: ProjectCardData[] = [
   {
-    title: "Personal Project 1",
-    description: "Description",
-    tech: ["React", "Node.js", "PostgreSQL"],
-    media: {
-      type: 'images',
-      images: [
-        { src: '/images/placeholder.png', alt: 'Personal project screenshot' }
-      ]
-    },
+    title: "Cloud Analytics Platform",
+  description: "Parallel Twitter analysis on SPARTAN HPC: aggregate happiest/most-active hour/day from precomputed fields.",
+  tech: ["Python", "mpi4py", "SLURM", "SPARTAN HPC"],
+    media: { type: 'images', images: [] },
     type: 'personal',
-    githubUrl: ''
+  githubUrl: 'https://github.com/Hkarnen/COMP90024-A1',
+    liveUrl: '/projects#cloud-analytics-platform'
   },
   {
-    title: "Personal Project 2", 
-    description: "Description",
-    tech: ["Python", "Flask", "MongoDB"],
-    media: {
-      type: 'images',
-      images: [
-        { src: '/images/placeholder.png', alt: 'Personal project screenshot' }
-      ]
-    },
+    title: "NLP Fact-Checking Pipeline",
+    description: "Dense retrieval + re-ranking with Gemma-3-1B-it classification; +18% recall.",
+    tech: ["Sentence-BERT", "FAISS", "Hugging Face", "Elasticsearch"],
+    media: { type: 'images', images: [] },
     type: 'personal',
-    githubUrl: ''
+    liveUrl: '/projects#nlp-fact-checking-pipeline'
   }
 ];
 
